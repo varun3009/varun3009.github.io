@@ -1,0 +1,147 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+      background-image: url("bgimg.jpg");
+      background-color: #323838;
+      color:white;
+}
+.vop{
+  opacity:0.9 ;
+}
+.navi {
+  list-style-type: none;
+  display: inline-block;
+  height: auto;
+  width: 100%;
+}
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  flex-wrap: nowrap;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.title {
+  text-align: center;
+  background-color: aliceblue;
+  color: greenyellow;
+}
+.lside {
+  margin-left: 10px;
+  flex: 25%;
+  margin-right: 10px;
+  border-radius: 5px;
+  background-color: bisque;
+  box-shadow: 5px 5px;
+  
+}
+.cside {
+  flex: 60%;
+  margin-right: 10px;
+  border-radius: 5px;
+  background-color: bisque;
+  height: 100px;
+  width: 100px;
+}
+.rside {
+  flex: 15%;
+  margin-right: 10px;
+  border-radius: 5px;
+  background-color: bisque;
+  height: 100px;
+}
+.footer {
+  text-align: center;
+  border-radius: 5px;
+  background-color: antiquewhite;
+}
+.myname{
+  font: 80px sans-serif;
+  color:#a9a7a1fa;
+}
+.vrole
+{
+  color:darkgrey;
+}
+.vbutton1
+{
+  padding: 2.3rem;
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  background-color:#f7dc4f;
+  font:22px sans-serif;
+}
+.vbutton2 {
+  padding: 2.3rem;
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+  background-color: #ff3b25;
+  font: 22px sans-serif;
+  
+}
+.vbutton3 {
+  padding: 2.3rem;
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  background-color: #80d8da;
+  font: 22px sans-serif;
+}
+.aboutmev
+{
+  font:48px sans-serif;
+  justify-content: center;
+  color:#015761;
+}
+.abtme{
+  font:18px sans-serif;
+  line-height: 12mm;
+}
+.padmeleft
+{
+  padding-left:6rem;
+}
+.skill{
+  padding-left:2rem;
+  font:19px sans-serif;
+  color:#cd2d14;
+}
+.inp
+{
+  padding-inline-end: 3rem;
+}
+.vcard{
+  width: 250px;
+  padding-top:3rem;
+  box-shadow: 0 4px 8px 0 rgba(226, 24, 24, 0.2),
+  0 6px 20px 0 rgba(220, 9, 9, 0.19);
+  text-align: center;
+  color:black;
+  background-color: white;
+  }
+.padmecenter
+{
+  display: flex;
+  justify-content: center;
+  
+}
+@media screen and (max-width: 480px) {
+  .padmeleft {
+    padding-left: 0rem;
+  }
+  .skill
+  {
+    padding-left:0rem;
+  }
+  .padmecenter{
+    padding-left:1.8rem;
+  }
+  #hideme
+  {
+    visibility: hidden;
+  }
+}
