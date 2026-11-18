@@ -16,25 +16,28 @@ export const sections = [
 ]
 
 export const metrics = [
-  { value: '10K+', label: 'orders / day', detail: 'Automated Shopify order ingestion at DeltaX.', target: 'experience' },
-  { value: '10+', label: 'services using the SDK', detail: 'One .NET SDK across AWS S3 and Azure Blob.', target: 'experience' },
-  { value: '1.5 yrs', label: 'engineering at DeltaX', detail: 'Internship followed by full-time product engineering.', target: 'experience' },
+  { value: '10K+', label: 'orders / day', detail: 'Incremental Shopify order ingestion at DeltaX.', target: 'experience', role: 'deltax' },
+  { value: '20+', label: 'services using the SDK', detail: 'One .NET SDK across AWS S3 and Azure Blob.', target: 'experience', role: 'deltax' },
+  { value: '200+', label: 'client accounts', detail: 'Email scheduling and tracking at DeltaX.', target: 'experience', role: 'deltax' },
   { value: '1,000+', label: 'problems solved', detail: 'Practice and contests across coding platforms.', target: 'coding' },
 ]
 
 export const experience = [
   {
-    id: 'deltax', company: 'DeltaX', role: 'Associate Product Engineer', dates: 'Sep 2024 – Jul 2025', location: 'Hyderabad, India', kind: 'Production engineering',
-    summary: 'Built commerce integrations, background jobs, and reusable cloud infrastructure for a digital advertising platform.',
+    id: 'deltax', company: 'DeltaX', role: 'Associate Product Engineer (Full-time)', dates: 'Feb 2024 – Jul 2025', location: 'Hyderabad, India', kind: 'Production engineering',
+    summary: 'Built production services for messaging, commerce data, cloud storage, and enterprise access control.',
     impact: [
-      ['10K+', 'Shopify orders / day'], ['1K+', 'daily file operations'], ['10+', 'services using the SDK'], ['100+', 'emails / day'],
+      ['200+', 'email client accounts'], ['100+', 'Meta business accounts'], ['10K+', 'Shopify orders / day'],
+      ['20+', 'services using the SDK'], ['50+', 'granular permissions'],
     ],
     bullets: [
-      'Built .NET APIs and asynchronous scheduling to deliver 100+ emails per day across 20+ accounts. Reused the campaign worker after evaluating RabbitMQ, avoiding a new infrastructure dependency.',
-      'Unified AWS S3 and Azure Blob behind a .NET NuGet SDK, removing direct application access to cloud keys across 10+ services.',
-      'Automated Shopify ingestion for two merchants, turning first-time buyers into leads and feeding SKU and trending-product analytics.',
+      'Architected email scheduling and tracking with C#, .NET, SQL Server, and background workers for 200+ client accounts, replacing manual follow-up checks with real-time visibility into sent email.',
+      'Built a unified Instagram and Facebook inbox with Meta Graph APIs and webhooks, consolidating conversations from 100+ business accounts and delivering messages in seconds.',
+      'Optimized incremental Shopify API ingestion to process 10K+ orders per day, skipping unchanged data on re-syncs and powering first-time-buyer segmentation and trending-product analytics.',
+      'Published a NuGet SDK for AWS S3 and Azure Blob that replaced duplicate storage integrations across 20+ services. Applications could switch storage providers without code changes.',
+      'Implemented enterprise role-based access control in C# and .NET with 50+ granular permissions and self-service onboarding, replacing manual provisioning and reducing support effort.',
     ],
-    stack: ['C#', '.NET', 'SQL Server', 'AWS S3', 'Azure Blob', 'Background jobs', 'Vue.js'],
+    stack: ['C#', '.NET', 'SQL Server', 'Background jobs', 'Meta Graph APIs', 'Webhooks', 'Shopify API', 'NuGet', 'AWS S3', 'Azure Blob'],
   },
   {
     id: 'ub', company: 'University at Buffalo', role: 'Graduate Researcher', dates: 'Feb 2026 – Present', location: 'Buffalo, NY', kind: 'Current · Applied AI',
@@ -42,8 +45,7 @@ export const experience = [
     impact: [['400K', 'handwriting samples'], ['399', 'handwriting styles'], ['4', 'NVIDIA A5000 GPUs']],
     bullets: [
       'Combined YOLO and ByteTrack to assign persistent IDs to potholes across dashcam frames, consolidating repeated detections into a single road defect.',
-      'Built a 400K-sample handwriting dataset and trained VAE and T5 models across four NVIDIA A5000 GPUs using PyTorch DistributedDataParallel.',
-      'Investigate style-conditioned diffusion separately, using a vision-transformer style encoder, a UNet, and multi-GPU training on cluster resources.',
+      'Built a dataset of 400K handwriting samples across 399 styles and trained VAE and T5 models using PyTorch DDP on four NVIDIA A5000 GPUs. The models reached training losses of 0.10 for VAE and 0.68 for T5.',
     ],
     stack: ['Python', 'PyTorch', 'YOLO', 'ByteTrack', 'VAE', 'T5', 'DDP'],
   },
@@ -52,22 +54,10 @@ export const experience = [
     summary: 'Gave admins control over community rewards and helped members find nearby safety resources.',
     impact: [['10K+', 'locations on Mapbox'], ['3', 'activity signals for badges']],
     bullets: [
-      'Replaced hard-coded reward logic with a badge rules engine for post, active-day, and follower milestones.',
-      'Built an admin workflow to define badges and qualification rules, so new badge programs ship through configuration.',
-      'Added backend coordinate support and visualized 10K+ user locations in Mapbox.',
-      'Worked on Salesforce Lightning Web Components, workflow automation, and validation.',
+      'Built a configurable badge-rules engine and admin interface for post, active-day, and follower milestones, so staff could launch new rewards without code changes.',
+      'Added backend coordinate support and mapped 10K+ user locations in an interactive Mapbox view, surfacing user concentration and nearby safety resources.',
     ],
-    stack: ['Angular', 'Node.js', 'MongoDB', 'Mapbox', 'REST APIs', 'Salesforce LWC'],
-  },
-  {
-    id: 'deltax-intern', company: 'DeltaX', role: 'Software Engineering Intern', dates: 'Feb 2024 – Sep 2024', location: 'Hyderabad, India', kind: 'Platform integrations',
-    summary: 'Built organization-level access controls and connected customer conversations to Meta messaging.',
-    impact: [['10+', 'connected Meta accounts'], ['24h', 'messaging window enforced']],
-    bullets: [
-      'Designed backend RBAC with reusable permission groups and email or SMS OTP invitations for scoped onboarding.',
-      'Integrated Facebook Messenger and Instagram through Meta webhooks, enforcing the 24-hour messaging window and supporting App Review.',
-    ],
-    stack: ['C#', '.NET', 'Vue.js', 'SQL Server', 'Meta Webhooks'],
+    stack: ['Angular', 'Node.js', 'MongoDB', 'Mapbox', 'REST APIs'],
   },
 ]
 
@@ -111,7 +101,7 @@ export const projects = [
     summary: 'Investigating how handwriting references can condition a generative model, from style embeddings through multi-GPU training.',
     problem: 'Generating readable text and preserving the appearance of a target handwriting style require different signals.',
     approach: 'A vision-transformer encoder represents handwriting style. A conditioned UNet learns denoising for generation. Experiments explore classification and contrastive objectives alongside distributed training and checkpointing.',
-    outcome: 'The diffusion work is ongoing. A separate earlier experiment assembled 400K samples from 399 styles and trained VAE and T5 models on four NVIDIA A5000 GPUs.',
+    outcome: 'The diffusion work is ongoing. In an earlier experiment with 400K handwriting samples across 399 styles, VAE and T5 models trained on four NVIDIA A5000 GPUs reached training losses of 0.10 and 0.68, respectively.',
     stack: ['PyTorch', 'ViT', 'Diffusion', 'UNet', 'DDP', 'SLURM'],
     diagram: ['Reference', 'Style encoder', 'UNet', 'Generation'],
     nodes: ['Use reference handwriting as the style input.', 'Encode visual features with a vision transformer.', 'Condition the denoising UNet on the style embedding.', 'Compare generated text against style references and inspect failure cases.'],
@@ -164,7 +154,7 @@ export const secondaryProjects = [
 
 export const engineeringNotes = [
   { title: 'When an existing worker is the better queue', summary: 'At DeltaX I evaluated RabbitMQ while building scheduled email delivery. The established campaign worker already provided a background execution path, so I reused it for scheduling instead of introducing a broker and another service to operate. In MovieVerse I made the opposite choice because the API and Python image workers had separate responsibilities and exchanged processing and completion events.' },
-  { title: 'One cloud storage interface across two providers', summary: 'The DeltaX NuGet SDK put S3 and Azure Blob behind one credential-managed interface. This moved provider-specific access out of application services and standardized over 1K daily file operations. A shared SDK was the right boundary because the callers needed the same storage operations while the platform controlled how credentials were accessed.' },
+  { title: 'One cloud storage interface across two providers', summary: 'At DeltaX, I published a NuGet SDK that put AWS S3 and Azure Blob behind one interface. It replaced duplicate storage integrations across 20+ services and let applications switch providers without code changes.' },
   { title: 'Where to pause an agent workflow', summary: 'AgentQL pauses when it needs user clarification, before SQL generation. A stateful thread carries the conversation and allows execution to resume. Schema discovery gives generation concrete database context, and operation validation runs before execution.' },
 ]
 
@@ -203,15 +193,15 @@ export const skillGroups = [
     name: 'Frontend',
     description: 'Vue interfaces at DeltaX and Mapbox visualization at Safety Knights',
     color: 'amber',
-    items: ['Vue.js', 'React', 'Angular', 'Mapbox', 'Salesforce LWC', 'HTML & CSS'],
+    items: ['Vue.js', 'React', 'Angular', 'Mapbox', 'HTML & CSS'],
   },
 ]
 
 export const roleFits = [
-  { id: 'api', name: 'Backend APIs', evidence: 'Built .NET REST APIs for campaign scheduling, commerce ingestion, and role-based onboarding.', target: 'experience', label: 'DeltaX experience' },
+  { id: 'api', name: 'Backend APIs', evidence: 'Built .NET email scheduling for 200+ client accounts and enterprise RBAC with 50+ granular permissions.', target: 'experience', role: 'deltax', label: 'DeltaX experience' },
   { id: 'async', name: 'Distributed workflows', evidence: 'Separated MovieVerse request handling and poster processing using two RabbitMQ queues and Python workers.', target: '/work/movieverse', label: 'MovieVerse case study' },
-  { id: 'cloud', name: 'Cloud integrations', evidence: 'Unified AWS S3 and Azure Blob behind a credential-managed SDK used by 10+ services.', target: 'experience', label: 'DeltaX experience' },
-  { id: 'fullstack', name: 'Full-stack delivery', evidence: 'Shipped a badge configuration workflow and mapped 10K+ user locations using Angular, Node.js, and Mapbox.', target: 'experience', label: 'Safety Knights experience' },
+  { id: 'cloud', name: 'Cloud integrations', evidence: 'Published a NuGet SDK for AWS S3 and Azure Blob that replaced duplicate integrations across 20+ services.', target: 'experience', role: 'deltax', label: 'DeltaX experience' },
+  { id: 'fullstack', name: 'Full-stack delivery', evidence: 'Built a configurable badge-rules engine and admin interface, and mapped 10K+ user locations with Mapbox.', target: 'experience', role: 'safety', label: 'Safety Knights experience' },
   { id: 'ai', name: 'Applied AI', evidence: 'Trained VAE and T5 models across four A5000 GPUs and built a stateful LangGraph SQL assistant.', target: 'projects', label: 'Applied AI projects' },
   { id: 'mlinfra', name: 'ML infrastructure', evidence: 'Built multi-GPU training workflows with PyTorch DDP and worked with checkpoints, SLURM, and training diagnostics.', target: 'research', label: 'Graduate research' },
   { id: 'algorithms', name: 'Algorithms', evidence: 'Solved 1,000+ problems across platforms and earned a 1398 peak rating on Codeforces.', target: 'coding', label: 'Competitive programming' },

@@ -167,9 +167,13 @@ function executeCommand(command) {
   }
 }
 
+function selectRole(id) {
+  const index = experience.findIndex(role => role.id === id)
+  if (index !== -1) roleIndex.value = index
+}
+
 function followFit(fit) {
-  if (fit.id === 'api' || fit.id === 'cloud') roleIndex.value = 0
-  if (fit.id === 'fullstack') roleIndex.value = 2
+  selectRole(fit.role)
   if (fit.target === 'projects') projectFilter.value = 'AI & ML'
 }
 
@@ -305,12 +309,12 @@ onUnmounted(() => {
         </article>
         <article class="panel education">
           <GraduationCap :size="24" aria-hidden="true" /><h3>Education</h3>
-          <div><strong>University at Buffalo, SUNY</strong><span>M.S. Computer Science and Engineering · AI / ML</span><small>Expected Dec 2026 · GPA 3.91 / 4.00</small></div>
+          <div><strong>University at Buffalo, SUNY</strong><span>M.S. Computer Science and Engineering · AI / ML</span><small>Expected Dec 2026 · GPA 3.93 / 4.00</small></div>
           <div><strong>Osmania University</strong><span>B.E. Computer Science and Engineering</span><small>May 2024 · GPA 8.75 / 10</small></div>
         </article>
       </div>
       <div class="metric-grid">
-        <a v-for="metric in metrics" :key="metric.label" class="panel metric" :href="'#' + metric.target"><strong class="gradient-text">{{ metric.value }}</strong><span>{{ metric.label }}</span><p>{{ metric.detail }}</p><ArrowUpRight :size="15" /></a>
+        <a v-for="metric in metrics" :key="metric.label" class="panel metric" :href="'#' + metric.target" @click="selectRole(metric.role)"><strong class="gradient-text">{{ metric.value }}</strong><span>{{ metric.label }}</span><p>{{ metric.detail }}</p><ArrowUpRight :size="15" /></a>
       </div>
     </section>
 
@@ -394,7 +398,7 @@ onUnmounted(() => {
       <div class="section-intro"><span class="eyebrow">University at Buffalo</span><h2 id="research-title">Getting models to <span class="gradient-text">train and work.</span></h2><p>My graduate research spans model architecture, dataset preparation, and distributed GPU training.</p></div>
       <div class="research-grid">
         <article class="panel"><h3>Style-conditioned diffusion</h3><p>Current work explores a ViT style encoder and a conditioned UNet for handwritten text generation. I work with SLURM, checkpoints, and PyTorch DDP to run and debug experiments across GPUs.</p><a class="inline-link" href="#/work/handwriting">Handwriting case study <ArrowRight :size="15" /></a></article>
-        <article class="panel"><h3>Earlier VAE and T5 experiments</h3><p>Assembled 400K samples spanning 399 handwriting styles and trained VAE and T5 models across four NVIDIA A5000 GPUs. This experiment predates the current diffusion work.</p><a class="inline-link" href="#experience" @click="roleIndex = 1">Research experience <ArrowRight :size="15" /></a></article>
+        <article class="panel"><h3>Earlier VAE and T5 experiments</h3><p>Trained VAE and T5 models with PyTorch DDP on four NVIDIA A5000 GPUs using 400K handwriting samples across 399 styles. Training loss reached 0.10 for VAE and 0.68 for T5.</p><a class="inline-link" href="#experience" @click="selectRole('ub')">Research experience <ArrowRight :size="15" /></a></article>
       </div>
     </section>
 
